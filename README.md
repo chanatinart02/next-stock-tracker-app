@@ -33,25 +33,25 @@ AI-powered modern stock market app built with Next.js, Shadcn, Better Auth, and 
 
 ## ⚙️ Tech Stack
 
+- **Next.js**
+
+- **Shadcn** is an open-source library of fully customizable, accessible React components.
+
+- **TailwindCSS** is a utility-first CSS framework that allows developers to build custom, responsive designs quickly without leaving their HTML. It provides pre-defined classes for layout, typography, colors, and more.
+
+- **TypeScript** is a statically typed superset of JavaScript that improves code quality, tooling, and error detection. It is ideal for building large-scale applications and enhances maintainability.
+
 - **Better Auth** is a framework-agnostic authentication and authorization library for TypeScript. It provides built-in support for email/password login, social sign-on (Google, GitHub, Apple, and more), and multi-factor authentication, simplifying user authentication and account management.
 
-- CodeRabbit is an AI-powered code review assistant that integrates with GitHub. It helps developers catch bugs, enforce best practices, and maintain consistent code quality across pull requests, reducing manual review effort and speeding up the development workflow.
+- [trading view widget](https://www.tradingview.com/widget-docs/getting-started/#getting-started) is a widget that displays real-time market data and charts for various stocks, cryptocurrencies, and indices.
 
 - Finnhub is a real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
 
 - Inngest is a platform for event-driven workflows and background jobs. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
 
-- MongoDB is a flexible, high-performance NoSQL database. It stores data in JSON-like documents, supports dynamic schemas, and provides robust features for scalability, replication, and querying.
+- **MongoDB**
 
-- Nodemailer is a Node.js library for sending emails easily. It supports various transport methods such as SMTP, OAuth2, and third-party services, making it a reliable tool for handling transactional emails, notifications, and contact forms in applications.
-
-- Next.js is a powerful React framework for building full-stack web applications. It provides server-side rendering, static site generation, and API routes, allowing developers to create optimized and scalable apps quickly.
-
-- Shadcn is an open-source library of fully customizable, accessible React components. It helps teams rapidly build consistent, visually appealing UIs while allowing full control over design and layout.
-
-- TailwindCSS is a utility-first CSS framework that allows developers to build custom, responsive designs quickly without leaving their HTML. It provides pre-defined classes for layout, typography, colors, and more.
-
-- TypeScript is a statically typed superset of JavaScript that improves code quality, tooling, and error detection. It is ideal for building large-scale applications and enhances maintainability.
+- **Nodemailer** is a Node.js library for sending emails easily. It supports various transport methods such as SMTP, OAuth2, and third-party services, making it a reliable tool for handling transactional emails, notifications, and contact forms in applications.
 
 ## 🔋 Features
 
@@ -70,3 +70,11 @@ AI-powered modern stock market app built with Next.js, Shadcn, Better Auth, and 
 👉 Customizable Notifications: Fine-tune alerts and notifications based on user watchlists and preferences for a highly personalized experience.
 
 👉 Analytics & Insights: Gain insights into user behavior, stock trends, and engagement metrics, enabling smarter business and trading decisions.
+
+## Project Structure
+
+The project is structured as follows:
+
+- **components**: Contains reusable UI components from Shadcn and custom components.
+- **lib**: Contains utility functions and constants.
+- **hooks**: Contains custom hooks such as `useTradingViewWidget.tsx` and `useDebounce.ts`
