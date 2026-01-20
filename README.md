@@ -37,13 +37,15 @@ AI-powered modern stock market app built with Next.js, Shadcn, Better Auth, and 
 
 - **Shadcn** is an open-source library of fully customizable, accessible React components.
 
-- **TailwindCSS** is a utility-first CSS framework that allows developers to build custom, responsive designs quickly without leaving their HTML. It provides pre-defined classes for layout, typography, colors, and more.
+- **TailwindCSS**
 
-- **TypeScript** is a statically typed superset of JavaScript that improves code quality, tooling, and error detection. It is ideal for building large-scale applications and enhances maintainability.
+- **React hook form** - a library for managing form state and validation in React components.
 
 - **Better Auth** is a framework-agnostic authentication and authorization library for TypeScript. It provides built-in support for email/password login, social sign-on (Google, GitHub, Apple, and more), and multi-factor authentication, simplifying user authentication and account management.
 
 - [trading view widget](https://www.tradingview.com/widget-docs/getting-started/#getting-started) is a widget that displays real-time market data and charts for various stocks, cryptocurrencies, and indices.
+- [react-select-country-list](https://www.npmjs.com/package/react-select-country-list) - is a React component that allows users to select a country from a dropdown list.
+- [react-country-flag](https://www.npmjs.com/package/react-country-flag) - is a React component that displays a flag for a specific country.
 
 - Finnhub is a real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
 
@@ -78,3 +80,4 @@ The project is structured as follows:
 - **components**: Contains reusable UI components from Shadcn and custom components.
 - **lib**: Contains utility functions and constants.
 - **hooks**: Contains custom hooks such as `useTradingViewWidget.tsx` and `useDebounce.ts`
+- `types/global.d.ts`: Global type definitions for the project.
