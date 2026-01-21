@@ -81,3 +81,5 @@ The project is structured as follows:
 - **lib**: Contains utility functions and constants.
 - **hooks**: Contains custom hooks such as `useTradingViewWidget.tsx` and `useDebounce.ts`
 - `types/global.d.ts`: Global type definitions for the project.
+- **script**
+  - `test-db.ts`: A script for testing the connection to the database.
