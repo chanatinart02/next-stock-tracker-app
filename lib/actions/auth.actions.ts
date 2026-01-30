@@ -2,7 +2,7 @@
 
 import { headers } from "next/headers";
 import { auth } from "../better-auth/auth";
-import { inngest } from "../inggest/client";
+import { inngest } from "../inngest/client";
 
 /**
  * Sign up a user using email and password.

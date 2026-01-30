@@ -47,7 +47,7 @@ AI-powered modern stock market app built with Next.js, Shadcn, Better Auth, and 
 - [react-select-country-list](https://www.npmjs.com/package/react-select-country-list) - is a React component that allows users to select a country from a dropdown list.
 - [react-country-flag](https://www.npmjs.com/package/react-country-flag) - is a React component that displays a flag for a specific country.
 
-- [Inngest](https://www.inngest.com/docs/getting-started/nextjs-quick-start?ref=docs-home) is a platform for **event-driven** **workflows** and background job runners. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
+- [Inngest](https://www.inngest.com/docs/getting-started/nextjs-quick-start?ref=docs-home) is a platform for **event-driven** **workflows** and **background job runners**. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
 - **Gemini** - AI for generate welcome emails for new users `lib/inggest/prompts.ts`
 - Finnhub is a real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
 
