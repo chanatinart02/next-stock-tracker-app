@@ -4,8 +4,12 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import InputField from "@/components/forms/InputField";
 import FooterLink from "@/components/forms/FooterLink";
+import { signInWithEmail } from "@/lib/actions/auth.actions";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const SignIn = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -20,9 +24,14 @@ const SignIn = () => {
 
   const onSubmit = async (data: SignInFormData) => {
     try {
-      console.log("Sign in", data);
+      const result = await signInWithEmail(data);
+
+      if (result.success) router.push("/");
     } catch (e) {
       console.error(e);
+      toast.error("Sign-in failed", {
+        description: e instanceof Error ? e.message : "Failed to sign in.",
+      });
     }
   };
 
@@ -34,10 +43,17 @@ const SignIn = () => {
         <InputField
           name="email"
           label="Email"
+          type="email"
           placeholder="contact@jsmastery.com"
           register={register}
           error={errors.email}
-          validation={{ required: "Email is required", pattern: /^\w+@\w+\.\w+$/ }}
+          validation={{
+            required: "Email is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Invalid email address",
+            },
+          }}
         />
 
         <InputField
@@ -47,7 +63,13 @@ const SignIn = () => {
           type="password"
           register={register}
           error={errors.password}
-          validation={{ required: "Password is required", minLength: 8 }}
+          validation={{
+            required: "Password is required",
+            minLength: {
+              value: 8,
+              message: "Password must be at least 8 characters",
+            },
+          }}
         />
 
         <Button type="submit" disabled={isSubmitting} className="yellow-btn w-full mt-5">

@@ -47,9 +47,9 @@ AI-powered modern stock market app built with Next.js, Shadcn, Better Auth, and 
 - [react-select-country-list](https://www.npmjs.com/package/react-select-country-list) - is a React component that allows users to select a country from a dropdown list.
 - [react-country-flag](https://www.npmjs.com/package/react-country-flag) - is a React component that displays a flag for a specific country.
 
+- [Inngest](https://www.inngest.com/docs/getting-started/nextjs-quick-start?ref=docs-home) is a platform for **event-driven** **workflows** and background job runners. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
+- **Gemini** - AI for generate welcome emails for new users `lib/inggest/prompts.ts`
 - Finnhub is a real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
-
-- Inngest is a platform for event-driven workflows and background jobs. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
 
 - **MongoDB**
 
@@ -83,3 +83,13 @@ The project is structured as follows:
 - `types/global.d.ts`: Global type definitions for the project.
 - **script**
   - `test-db.ts`: A script for testing the connection to the database.
+- **API Routes**: `src/api`
+- **Actions**: `lib/actions` - Server actions for authentication and authorization.
+- **Middleware**: `middleware` - Protects authenticated routes.
+
+## Auth Workflow
+
+- **Sign Up**: Users can sign up with email and password.
+  - ![alt text](/screenshots/signUp-wf.png)
+- **Sign In**: Users can sign in with email and password.
+  - ![alt text](/screenshots/signIn-wf.png)
