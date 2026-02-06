@@ -49,7 +49,7 @@ AI-powered modern stock market app built with Next.js, Shadcn, Better Auth, and 
 
 - [Inngest](https://www.inngest.com/docs/getting-started/nextjs-quick-start?ref=docs-home) is a platform for **event-driven** **workflows** and **background job runners**. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
 - **Gemini** - AI for generate welcome emails for new users `lib/inggest/prompts.ts`
-- Finnhub is a real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
+- [Finnhub](https://finnhub.io/docs/api) is a real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
 
 - **MongoDB**
 
@@ -84,7 +84,10 @@ The project is structured as follows:
 - **script**
   - `test-db.ts`: A script for testing the connection to the database.
 - **API Routes**: `src/api`
-- **Actions**: `lib/actions` - Server actions for authentication and authorization.
+- **Database**- Contains database models and connections.
+- **Actions**: `lib/actions` - Server actions
+  - **Auth**: `auth.actions.ts` - Handles user authentication sign-in, sign-up, and sign-out.
+  - **User** - `user.actions.ts` - Handles user profile and settings.
 - **Middleware**: `middleware` - Protects authenticated routes.
 
 ## Auth Workflow

@@ -12,7 +12,7 @@ import { getSessionCookie } from "better-auth/cookies";
 export async function middleware(request: NextRequest) {
   const sessionCookie = getSessionCookie(request);
 
-  // If no session cookie, redirect to home page (sign-in)
+  // If no session cookie, redirect to home page
   if (!sessionCookie) {
     return NextResponse.redirect(new URL("/", request.url));
   }
