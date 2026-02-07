@@ -125,11 +125,12 @@ export const searchStocks = cache(async (query?: string): Promise<StockWithWatch
       return [];
     }
 
+    // Normalize query (trim spaces)
     const trimmed = typeof query === "string" ? query.trim() : "";
 
     let results: FinnhubSearchResult[] = [];
 
-    // No query → show popular stocks
+    // CASE 1: No search query → show popular stocks
     if (!trimmed) {
       // Fetch top 10 popular symbols' profiles
       const top = POPULAR_STOCK_SYMBOLS.slice(0, 10);
@@ -147,49 +148,56 @@ export const searchStocks = cache(async (query?: string): Promise<StockWithWatch
         }),
       );
 
+      // Convert profiles into FinnhubSearchResult-like objects
       results = profiles
         .map(({ sym, profile }) => {
           const symbol = sym.toUpperCase();
           const name: string | undefined = profile?.name || profile?.ticker || undefined;
           const exchange: string | undefined = profile?.exchange || undefined;
           if (!name) return undefined;
+
           const r: FinnhubSearchResult = {
             symbol,
             description: name,
             displaySymbol: symbol,
             type: "Common Stock",
           };
-          // We don't include exchange in FinnhubSearchResult type, so carry via mapping later using profile
-          // To keep pipeline simple, attach exchange via closure map stage
-          // We'll reconstruct exchange when mapping to final type
+
+          // Hack: attach exchange temporarily for later mapping
           (r as any).__exchange = exchange; // internal only
           return r;
         })
         .filter((x): x is FinnhubSearchResult => Boolean(x));
     } else {
+      // CASE 2: User typed a query → search via Finnhub API
       const url = `${FINNHUB_BASE_URL}/search?q=${encodeURIComponent(trimmed)}&token=${token}`;
       const data = await fetchJSON<FinnhubSearchResponse>(url, 1800);
       results = Array.isArray(data?.result) ? data.result : [];
     }
 
+    // Map FinnhubSearchResult to StockWithWatchlistStatus (app's type)
     const mapped: StockWithWatchlistStatus[] = results
       .map((r) => {
         const upper = (r.symbol || "").toUpperCase();
         const name = r.description || upper;
+
+        // Try to get exchange from different sources
         const exchangeFromDisplay = (r.displaySymbol as string | undefined) || undefined;
         const exchangeFromProfile = (r as any).__exchange as string | undefined;
         const exchange = exchangeFromDisplay || exchangeFromProfile || "US";
+
         const type = r.type || "Stock";
         const item: StockWithWatchlistStatus = {
           symbol: upper,
           name,
           exchange,
           type,
-          isInWatchlist: false,
+          isInWatchlist: false, // default UI state
         };
+
         return item;
       })
-      .slice(0, 15);
+      .slice(0, 15); // limit to first 15 results
 
     return mapped;
   } catch (err) {
